@@ -1,0 +1,19 @@
+- name: Pip'in yüklenmesi
+  apt:
+    name: python3
+    name: python3-pip
+    state: present
+- name: Virtualenv
+  pip:
+    name: virtualenv
+    state: present
+
+- name: PyMySQL modülünün yüklenmesi
+  pip:
+    name: PyMySQL
+    state: present
+- name: Flask SQL Alchemy Kurulumu
+  pip:
+    name: flask_sqlalchemy
+    state: present
+  become: yes

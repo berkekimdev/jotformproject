@@ -1,0 +1,8 @@
+- name: Kullanıcı izinlerini daraltma
+      mysql_user:
+        login_user: root
+        login_password: "xxxxxxxxxx"
+        login_unix_socket: /run/mysqld/mysqld.sock
+        name: berkroot
+        host: '%'
+        priv: 'pythonflask.*:ALL'  

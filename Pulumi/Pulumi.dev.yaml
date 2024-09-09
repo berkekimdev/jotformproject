@@ -1,0 +1,3 @@
+config:
+  gcp:project: devops-interns
+  gcp:credentials: gcp-service-account.json

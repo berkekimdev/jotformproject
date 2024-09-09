@@ -1,0 +1,11 @@
+- name: Kisilerin eklenmesi
+      mysql_query:
+        login_user: berkroot
+        login_password: "xxxxxxxxxx"
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        login_db: pythonflask
+        query: |
+          INSERT INTO people (first_name, last_name, age) VALUES
+          ('Berk', 'Ekim', 30),
+          ('Alice', 'Johnson', 25),
+          ('Charlie', 'Brown', 35);

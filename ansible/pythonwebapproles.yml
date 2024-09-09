@@ -1,0 +1,12 @@
+---
+- hosts: webapp_server
+  become: yes
+  roles:
+    - update_repos
+    - install_git
+    - install_mysql
+    - configure_mysql
+    - install_python_tools
+    - setup_supervisord
+    - install_development_tools
+    - install_flask_environment

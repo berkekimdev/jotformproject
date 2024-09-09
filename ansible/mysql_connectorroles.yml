@@ -1,0 +1,14 @@
+---
+- hosts: gcp_servers
+  become: yes
+  become_method: sudo
+  roles:
+    - update_repos
+    - install_python_tools  
+    - install_mysql         
+    - configure_mysql       
+    - creating_mysql_user  
+    - creating_db_schema
+    - creating_db_table
+    - add_data_to_db
+    - change_user_auth     

@@ -1,0 +1,12 @@
+name: gcpcombinedberk
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+description: gcp app database jenkins
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: gcp-python
+  gcp:credentials: gcp-service-account.json

@@ -1,0 +1,4 @@
+- name: Git'in yüklenmesi
+  apt:
+    name: git
+    state: present

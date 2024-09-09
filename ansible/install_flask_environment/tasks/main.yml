@@ -1,0 +1,17 @@
+- name: Flask ve uyumlu sürümünün yüklenmesi
+  pip:
+    name:
+      - flask==2.2.5
+    state: present
+
+- name: Flask-MySQLdb kütüphanesinin yüklenmesi
+  pip:
+    name:
+      - flask-mysqldb
+    state: present
+
+- name: PyMySQL ve SQLAlchemy kütüphanelerinin yüklenmesi
+  pip:
+    name:
+      - SQLAlchemy
+    state: present

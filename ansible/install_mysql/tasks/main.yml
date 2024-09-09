@@ -1,0 +1,6 @@
+- name: MySQL paketlerinin yüklenmesi
+  apt:
+    name:
+      - default-mysql-server
+      - default-mysql-client
+    state: present

@@ -1,0 +1,5 @@
+- name: MySQL servisinin başlatılması
+  service:
+    name: mysql
+    state: started
+    enabled: true

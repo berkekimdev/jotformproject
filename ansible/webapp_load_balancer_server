@@ -1,0 +1,2 @@
+[webapp_server]
+35.232.212.189 ansible_user=berkekimgcp ansible_ssh_private_key_file=/etc/ansible/id_rsa
