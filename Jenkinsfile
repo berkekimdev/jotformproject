@@ -64,6 +64,40 @@ EOF
             }
         }
 
+        stage('Run Tests on Test Server') {
+            steps {
+                script {
+                    sshagent(credentials: [SSH_CREDENTIALS]) {
+                        sh '''
+                            ssh -t -i $SSH_KEY_PATH -o StrictHostKeyChecking=no berkekimgcp@$TEST_SERVER_IP << 'EOF'
+                            cd /home/berkekimgcp/test || { echo "Test directory does not exist"; exit 1; }
+
+                            all_tests_passed=true
+
+                            # Test dosyalarını çalıştır
+                            for test_script in $(ls *.py); do
+                                echo "Running test: $test_script"
+                                python3 "$test_script"
+                                if [ $? -ne 0 ]; then
+                                    echo "Test failed: $test_script"
+                                    all_tests_passed=false
+                                fi
+                            done
+
+                            if [ "$all_tests_passed" = false ]; then
+                                echo "Testlerden geçemedi."
+                                exit 1
+                            else
+                                echo "Bütün testlerden geçti."
+                                exit 0
+                            fi
+EOF
+                        '''
+                    }
+                }
+            }
+        }
+
         stage('Deploy to Production Server') {
             when {
                 expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
